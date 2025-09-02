@@ -28,9 +28,50 @@ nav.navbar {
 }
 .sign-in-btn {
   background-color: #c2e7fe;
- padding: 10px 12px;
+  padding: 10px 12px;
   border-radius: 100px;
 
   border: none;
   font-size: 16px;
+}
+
+.searchbar-section {
+  min-height: 50dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main-searchBar {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  width: 100%;
+  max-width: 585px;
+  min-height: 50px;
+  background: #4d5156;
+  border: 1px solid transparent;
+  box-shadow: none;
+  border-radius: 26px;
+}
+.search-icon,
+.searchByVoice,
+.searchByImage {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin: 0 8px;
+}
+.safdar-input {
+  width: 100%;
+  max-width: 440px;
+  font-family: Google Sans, Arial, sans-serif;
+  line-height: 22px; 
+  background-color: transparent;
+  border-color: transparent;
+  color: #fff;
+  min-height: 40px;
+}
+.safdar-input::placeholder{
+    font-size: 14px;
 }
