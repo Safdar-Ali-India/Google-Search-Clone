@@ -7,6 +7,8 @@ function initSearch() {
 
   if (!input) return;
 
+  input.focus();
+
   const doSearch = () => {
     const url = buildSearchUrl(input.value);
     if (url) window.location.assign(url);
