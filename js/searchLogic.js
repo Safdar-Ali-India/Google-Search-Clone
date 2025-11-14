@@ -1,11 +1,15 @@
+export function trimQuery(query) {
+  return (query ?? '').trim();
+}
+
 export function buildSearchUrl(query) {
-  const trimmed = (query ?? '').trim();
+  const trimmed = trimQuery(query);
   if (!trimmed) return null;
   return `https://www.google.com/search?q=${encodeURIComponent(trimmed)}`;
 }
 
 export function buildLuckyUrl(query) {
-  const trimmed = (query ?? '').trim();
+  const trimmed = trimQuery(query);
   if (!trimmed) {
     return 'https://www.google.com/doodles';
   }
