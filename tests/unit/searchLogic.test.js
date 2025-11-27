@@ -1,5 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import { buildLuckyUrl, buildSearchUrl, getLanguageCodes } from '../../js/searchLogic.js';
+import { buildLuckyUrl, buildSearchUrl, getLanguageCodes, trimQuery } from '../../js/searchLogic.js';
+
+describe('trimQuery', () => {
+  it('strips leading and trailing whitespace', () => {
+    expect(trimQuery('  hello  ')).toBe('hello');
+  });
+
+  it('handles null and undefined', () => {
+    expect(trimQuery(null)).toBe('');
+    expect(trimQuery(undefined)).toBe('');
+  });
+});
 
 describe('buildSearchUrl', () => {
   it('encodes a normal query', () => {
