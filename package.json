@@ -1,0 +1,16 @@
+{
+  "name": "google-search-clone",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
+}
