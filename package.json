@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "dev": "serve . -l 5502",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test"
@@ -11,6 +12,7 @@
   "devDependencies": {
     "@playwright/test": "^1.49.1",
     "jsdom": "^25.0.1",
+    "serve": "^14.2.4",
     "vitest": "^2.1.8"
   }
 }
