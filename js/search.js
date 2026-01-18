@@ -20,6 +20,10 @@ function initSearch() {
 
   input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') doSearch();
+    if (event.key === 'Escape') {
+      input.value = '';
+      input.blur();
+    }
   });
 
   searchBtn?.addEventListener('click', doSearch);
