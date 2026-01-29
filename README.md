@@ -23,7 +23,15 @@ index.html style.css README.md .vscode/ settings.json assets/ more-appls.svg saf
 ## Development
 
 - Uses [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for local development (`.vscode/settings.json` sets port to 5502).
-- No JavaScript functionality is included; this is a static UI template.
+- Search submit and "I'm Feeling Lucky" are handled in `js/search.js`.
+
+## Tests
+
+```bash
+npm install
+npm test          # vitest unit + dom tests
+npm run test:e2e  # playwright (needs port 5502 free)
+```
 
 ## License
 
