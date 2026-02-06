@@ -1,4 +1,4 @@
-import { buildLuckyUrl, buildSearchUrl } from './searchLogic.js';
+import { buildLuckyUrl, buildSearchUrl, trimQuery } from './searchLogic.js';
 
 function initSearch() {
   const input = document.querySelector('.safdar-input');
@@ -18,11 +18,21 @@ function initSearch() {
     window.location.assign(buildLuckyUrl(input.value));
   };
 
+  const syncButtonState = () => {
+    const hasQuery = trimQuery(input.value).length > 0;
+    searchBtn?.classList.toggle('search-actions__btn--disabled', !hasQuery);
+    luckyBtn?.classList.toggle('search-actions__btn--disabled', !hasQuery);
+  };
+
+  input.addEventListener('input', syncButtonState);
+  syncButtonState();
+
   input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') doSearch();
     if (event.key === 'Escape') {
       input.value = '';
       input.blur();
+      syncButtonState();
     }
   });
 
