@@ -15,6 +15,13 @@ test('typing in search input works', async ({ page }) => {
   await expect(input).toHaveValue('vitest tutorial');
 });
 
+test('search buttons look inactive before typing', async ({ page }) => {
+  await page.goto('/');
+
+  const searchBtn = page.getByRole('button', { name: 'Google Search' });
+  await expect(searchBtn).toHaveClass(/search-actions__btn--disabled/);
+});
+
 test('footer stacks on narrow screens', async ({ page }) => {
   await page.setViewportSize({ width: 480, height: 800 });
   await page.goto('/');
