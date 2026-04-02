@@ -156,6 +156,10 @@ footer.safdar-browser-footer a {
   font-size: 14px;
 }
 
+footer.safdar-browser-footer a:hover {
+  text-decoration: underline;
+}
+
 .footer__advertising,
 .footer__privacy {
   display: flex;
