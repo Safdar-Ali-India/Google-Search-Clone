@@ -30,6 +30,12 @@ describe('buildSearchUrl', () => {
       'https://www.google.com/search?q=react%20hooks'
     );
   });
+
+  it('encodes symbols in the query string', () => {
+    expect(buildSearchUrl('c++ & rust')).toBe(
+      'https://www.google.com/search?q=c%2B%2B%20%26%20rust'
+    );
+  });
 });
 
 describe('buildLuckyUrl', () => {
