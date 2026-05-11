@@ -22,6 +22,11 @@ test('search buttons look inactive before typing', async ({ page }) => {
   await expect(searchBtn).toHaveClass(/search-actions__btn--disabled/);
 });
 
+test('lucky button shows on homepage', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('button', { name: "I'm Feeling Lucky" })).toBeVisible();
+});
+
 test('footer stacks on narrow screens', async ({ page }) => {
   await page.setViewportSize({ width: 480, height: 800 });
   await page.goto('/');
