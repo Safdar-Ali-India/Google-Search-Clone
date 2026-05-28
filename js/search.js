@@ -1,5 +1,17 @@
 import { buildLuckyUrl, buildSearchUrl, trimQuery } from './searchLogic.js';
 
+function bindKeyboardShortcuts(input, handlers) {
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') handlers.onEnter();
+    if (event.key === 'Escape') handlers.onEscape();
+  });
+}
+
+function bindSearchButtons(searchBtn, luckyBtn, handlers) {
+  searchBtn?.addEventListener('click', handlers.onSearch);
+  luckyBtn?.addEventListener('click', handlers.onLucky);
+}
+
 function initSearch() {
   const input = document.querySelector('.safdar-input');
   const searchBtn = document.querySelector('.search-actions__btn--primary');
@@ -27,17 +39,19 @@ function initSearch() {
   input.addEventListener('input', syncButtonState);
   syncButtonState();
 
-  input.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') doSearch();
-    if (event.key === 'Escape') {
+  bindKeyboardShortcuts(input, {
+    onEnter: doSearch,
+    onEscape: () => {
       input.value = '';
       input.blur();
       syncButtonState();
-    }
+    },
   });
 
-  searchBtn?.addEventListener('click', doSearch);
-  luckyBtn?.addEventListener('click', doLucky);
+  bindSearchButtons(searchBtn, luckyBtn, {
+    onSearch: doSearch,
+    onLucky: doLucky,
+  });
 }
 
 document.addEventListener('DOMContentLoaded', initSearch);
