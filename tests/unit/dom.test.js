@@ -13,6 +13,7 @@ describe('index.html structure', () => {
     const input = document.querySelector('.safdar-input');
     expect(input).not.toBeNull();
     expect(input.getAttribute('placeholder')).toBe('Search Safdar or type a URL ');
+    expect(input.getAttribute('aria-label')).toBe('Search');
   });
 
   it('renders both search action buttons', () => {
